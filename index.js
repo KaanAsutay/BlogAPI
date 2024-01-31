@@ -25,5 +25,6 @@ app.all('/', (req, res) => {
 
 
 /* ------------------------------------------------------- */
+app.use(require('./src/errorHandler'))
 
 app.listen(PORT, () => console.log('Running: http://127.0.0.1:' + PORT))
