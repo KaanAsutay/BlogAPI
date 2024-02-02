@@ -5,6 +5,8 @@
 
 const mongoose = require('mongoose')
 
+/* ------------------------------------------------------- *
+
 const nameSchema = new mongoose.Schema({
    // _id: // AUTO CREATED
 
@@ -30,3 +32,41 @@ const nameSchema = new mongoose.Schema({
 })
 
 /* ------------------------------------------------------- */
+// blogPost:
+
+const blogPostSchema = new mongoose.Schema({
+
+    // _id
+
+    title: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    content: {
+        type: String,
+        trim: true,
+        required: true
+    },
+    published: {
+        type: Boolean,
+        default: true
+    }
+
+    // createdAt
+    // updatedAt
+
+}, { collection: 'blogPosts', timestamps: true })
+
+// const BlogPostModel = mongoose.model('BlogPost', blogPostSchema)
+
+// module.exports = {
+//     // blogCategory:
+//     BlogPost: blogPostModel
+// }
+
+module.exports = {
+    // BlogCategory:
+    BlogPost: mongoose.model('BlogPost', blogPostSchema)
+
+}
