@@ -11,15 +11,22 @@ const nameSchema = new mongoose.Schema({
    // fieldName: String // Shorthand Using
 
    fieldName: {
-        type: String,
-        default: null,
-        trim: true,
-        select: true,
-        unique: false,
-        index: false,
-        // required: true
-        required: [true, 'Error-message'],
-        enum: [[0, 1, 2, 3, 4], 'Error-Message']
+        type: String,  // veri tipi
+        default: null, // Default bir değer atayabiliriz
+        trim: true,    // Gelen veriyi trim'den geçir: trim(data)
+        unique: false, // Daha hızlı erişim olsun mu ?
+        select: true,  // Show-UnShow
+        index: false,  // Benzersiz kayıt olsun mu ?
+        required: [true, 'Error-message'], // JSON data içinde gelmsei zorunlu mu ?
+        enum: [[0, 1, 2, 3, 4], 'Error-Message'], // Pattern/Constraint/Choices
+        validate: [function(data) {return true}, 'Error-Message'],
+        get: function(data) {return true}, // Veri çağırırken çalıştırılacak fonksiyon
+        set: function(data) {return true}, // Veri kaydederken çalıştırılacak fonksiyon
    }
 
-}, {timestamps: true, })
+}, {
+    collection: 'collectionName', // Tablo ismi ne olsun ? 
+    timestamps: true // Create and Manage 'createdAt' and 'updatedAt'
+})
+
+/* ------------------------------------------------------- */
