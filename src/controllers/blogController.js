@@ -52,11 +52,14 @@ module.exports.BlogPost = {
         res.status(202).send({
             error: false,
             body: req.body,
-            result: data
+            result: data, // update infos
+            newData: await BlogPost.findOne({ _id: req.params.postId })
         })
     },
 
     delete: async (req, res) => {
-        
+        const data = await BlogPost.deleteOne({ _id: req.params.postId })
+
+        res.sendStatus((data.deletedCount >= 1) ? 204 : 404 )
     }
 }
