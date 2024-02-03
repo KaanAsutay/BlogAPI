@@ -24,7 +24,7 @@ module.exports.BlogPost = {
     },
 
     create: async (req, res) => {
-        const data = await BlogPost.insertOne(req.body)
+        const data = await BlogPost.create(req.body)
 
         res.status(201).send({
             error: false,
