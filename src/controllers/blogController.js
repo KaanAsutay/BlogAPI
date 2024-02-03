@@ -19,6 +19,7 @@ module.exports.BlogPost = {
         
         res.status(200).send({
             error: false,
+            count: data.length,
             result: data
         })
     },
@@ -45,7 +46,14 @@ module.exports.BlogPost = {
     },
 
     update: async (req, res) => {
-        
+        // const data = await BlogPost.findByIdAndUpdate(req.params.postId, req.body, {new: true})
+        const data = await BlogPost.updateOne({ _id: req.params.postId }, req.body)
+
+        res.status(202).send({
+            error: false,
+            body: req.body,
+            result: data
+        })
     },
 
     delete: async (req, res) => {
