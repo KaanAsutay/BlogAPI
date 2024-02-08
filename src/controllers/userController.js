@@ -63,5 +63,3 @@ module.exports.User = {
         res.sendStatus((data.deletedCount >= 1) ? 204 : 404 )
     }
 }
-
-
