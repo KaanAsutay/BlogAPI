@@ -24,6 +24,6 @@ const UserSchema = new mongoose.Schema({
 
     lastName: String,
 
-
-
 }, {collection: 'users', timestamps: 'true'})
+
+module.exports = mongoose.model('User', UserSchema)
