@@ -56,6 +56,10 @@ const blogPostSchema = new mongoose.Schema({
 
     // _id
 
+    blogCategoryId: {
+        type: 
+    },
+
     title: {
         type: String,
         trim: true,
