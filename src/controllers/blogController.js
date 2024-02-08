@@ -11,7 +11,6 @@ require('express-async-errors')
 // Call Models:
 const {BlogCategory, BlogPost} = require('../models/blogModel')
 
-
 // -------------------------------------------------------
 // BlogCategory
 // -------------------------------------------------------
@@ -66,9 +65,6 @@ module.exports.BlogCategory = {
         res.sendStatus((data.deletedCount >= 1) ? 204 : 404 )
     }
 }
-
-
-
 
 // -------------------------------------------------------
 // BlogPost
