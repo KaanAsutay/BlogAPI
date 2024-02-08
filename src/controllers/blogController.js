@@ -81,6 +81,16 @@ module.exports.BlogPost = {
         })
     },
 
+    listInCategory: async (req, res) => {
+        const data = await BlogPost.find({ blogCategoryId: req.params.categoryId }).populate('blogCategoryId') // get Primary Data
+        
+        res.status(200).send({
+            error: false,
+            count: data.length,
+            result: data
+        })
+    },
+
     create: async (req, res) => {
         const data = await BlogPost.create(req.body)
 
