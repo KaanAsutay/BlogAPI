@@ -36,7 +36,15 @@ const nameSchema = new mongoose.Schema({
 // BlogCategory 
 // -------------------------------------------------------
 
+const blogCategorySchema = new mongoose.Schema({
 
+    name: {
+        type: String,
+        trim: true,
+        required: true
+    }
+
+}, {collection: 'blogCategories', timestamps: true})
 
 
 
