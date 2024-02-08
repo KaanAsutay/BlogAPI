@@ -10,7 +10,6 @@ const { User } = require('../controllers/userController')
 // -------------------------------------------------------
 // User
 // -------------------------------------------------------
-
 router.route('/user')
     .get(User.list)
     .post(User.create)
