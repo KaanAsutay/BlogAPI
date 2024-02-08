@@ -11,19 +11,26 @@ const UserSchema = new mongoose.Schema({
         type: String,
         trim: true,
         unique: true,
-        required: [true, 'Email field must be required.']
+        required: [true, 'Email field must be required.'],
+        validate: [
+            (email) => (email.includes('@') && email.includes('.')), // ValidationCheck
+            'Email type is incorrect.' // If false Message.
+        ]
     },
 
     password: {
         type: String,
         trim: true,
-        required: true
+        required: true,
     },
 
     firstName: String,
 
     lastName: String,
 
-}, {collection: 'users', timestamps: 'true'})
+}, {
+    collection: 'users',
+    timestamps: true
+})
 
 module.exports = mongoose.model('User', UserSchema)
