@@ -46,7 +46,8 @@ module.exports.User = {
 
     update: async (req, res) => {
         // const data = await User.findByIdAndUpdate(req.params.userId, req.body, {new: true})
-        const data = await User.updateOne({ _id: req.params.userId }, req.body)
+        // const data = await User.updateOne({ _id: req.params.userId }, req.body)
+        const data = await User.updateOne({ _id: req.params.userId }, req.body, { runValidators: true })
 
         res.status(202).send({
             error: false,
