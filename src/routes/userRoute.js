@@ -21,6 +21,6 @@ router.route('/:userId')
     .delete(User.delete)
 
 // Login:
-
+router.post('/login', User.login)
 
 module.exports = router
