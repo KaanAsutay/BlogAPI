@@ -24,6 +24,6 @@ router.route('/:userId')
 router.post('/login', User.login)
 
 // Logout:
-router.post('/logout', User.logout)
+router.get('/logout', User.logout)
 
 module.exports = router
