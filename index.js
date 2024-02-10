@@ -26,7 +26,6 @@ app.use(session({
    // name: 'cookie' // default: req.session
     maxAge: 1000 * 60 * 60 * 24 // 1 day (miliseconds)
 }))
-
 /* ------------------------------------------------------- */
 
 app.use(express.json())
