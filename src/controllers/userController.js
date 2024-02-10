@@ -77,9 +77,13 @@ module.exports.User = {
             } else {
 
                 res.errorStatusCode = 401 
-                throw new Error('Login parametres is not true!')
+                throw new Error('Login parametres are not true!')
 
             }
+        } else {
+
+            res.errorStatusCode = 400
+            throw new Error('Email and Password are required')
 
         }
     }
