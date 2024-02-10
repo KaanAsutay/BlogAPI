@@ -70,6 +70,19 @@ module.exports.User = {
             // No need passwordEncrypt, because use "set" in model:
             const user = await User.findOne({ email: email, password: password })
             if (user) {
+
+                req.session = {
+                    user: {
+                        email: user.email,
+                        password: user.password
+                    }
+                }
+
+                if (req.body?.rememberMe) {
+                    // Set Cookie maxAge:
+                    req.sessionOptions.maxAge = 100 * 60 * 60 * 24 * 3 // 3 days
+                }
+
                 res.status(200).send({
                     error: false,
                     result: user
