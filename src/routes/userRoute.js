@@ -23,4 +23,7 @@ router.route('/:userId')
 // Login:
 router.post('/login', User.login)
 
+// Logout:
+router.post('/logout', User.logout)
+
 module.exports = router
