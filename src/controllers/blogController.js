@@ -75,6 +75,8 @@ module.exports.BlogPost = {
 
         // Searching & Sorting & Pagination:
 
+        // SEARCHING (search[fieldName]=param) 
+
         const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
         
         res.status(200).send({
