@@ -72,6 +72,9 @@ module.exports.BlogCategory = {
 module.exports.BlogPost = {
     
     list: async (req, res) => {
+
+        // Searching & Sorting & Pagination:
+
         const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
         
         res.status(200).send({
