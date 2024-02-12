@@ -75,9 +75,13 @@ module.exports.BlogPost = {
 
         // Searching & Sorting & Pagination:
 
-        // SEARCHING (search[fieldName]=param) 
+        // SEARCHING URL?search[key1]=value1&search[key2]=value2
+        const search = req.query?.search || {}
 
-        const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
+        const data = await BlogPost.find({ title: { $regex: 'Test 0', $options: i } }) // i: case Insensitive
+
+
+        // const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
         
         res.status(200).send({
             error: false,
