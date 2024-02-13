@@ -86,6 +86,8 @@ module.exports.BlogPost = {
         const sort = req.query?.sort || {}
         console.log(sort)
 
+        // PAGINATION: URL?page=1&limit=10
+
         const data = await BlogPost.find( search ).sort( sort ) // i: case Insensitive
 
         // const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
