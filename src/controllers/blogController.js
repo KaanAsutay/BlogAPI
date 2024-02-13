@@ -75,16 +75,18 @@ module.exports.BlogPost = {
 
         // Searching & Sorting & Pagination:
 
-        // SEARCHING URL?search[key1]=value1&search[key2]=value2
+        // SEARCHING: URL?search[key1]=value1&search[key2]=value2
         const search = req.query?.search || {}
 
-        console.log(search)
-        for (let key in search) search[key] = {  $regex: 'Test 0', $options: 'i'  }
-        console.log(search)
+        // console.log(search)
+        for (let key in search) search[key] = {  $regex: search[key], $options: 'i'  }
+        // console.log(search)
 
-        // SORTING: URL?sort[key1]=1&sort[key2]=-1
+        // SORTING: URL?sort[key1]=1&sort[key2]=-1 (1: ASC, -1:DESC)
+        const sort = req.query?.sort || {}
+        console.log(sort)
 
-        const data = await BlogPost.find( search ) // i: case Insensitive
+        const data = await BlogPost.find( search ).sort( sort ) // i: case Insensitive
 
         // const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
         
