@@ -82,6 +82,8 @@ module.exports.BlogPost = {
         for (let key in search) search[key] = {  $regex: 'Test 0', $options: 'i'  }
         console.log(search)
 
+        // SORTING: URL?sort[key1]=1&sort[key2]=-1
+
         const data = await BlogPost.find( search ) // i: case Insensitive
 
         // const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
