@@ -84,9 +84,16 @@ module.exports.BlogPost = {
 
         // SORTING: URL?sort[key1]=1&sort[key2]=-1 (1: ASC, -1:DESC)
         const sort = req.query?.sort || {}
-        console.log(sort)
+        // console.log(sort)
 
         // PAGINATION: URL?page=1&limit=10
+        // let limit =  req.query?.limit || (process.env.PAGE_SIZE || 20)
+        // limit = Number(limit)
+
+        let limit =  Number(req.query?.limit || (process.env.PAGE_SIZE || 20))
+        // console.log('limit', typeof limit, limit)
+        let page = Number(req.query?.page || 1)
+        console.log('page', typeof page, page)
 
         const data = await BlogPost.find( search ).sort( sort ) // i: case Insensitive
 
