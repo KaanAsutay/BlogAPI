@@ -93,7 +93,10 @@ module.exports.BlogPost = {
         let limit =  Number(req.query?.limit || (process.env.PAGE_SIZE || 20))
         // console.log('limit', typeof limit, limit)
         let page = Number(req.query?.page || 1)
-        console.log('page', typeof page, page)
+        // console.log('page', typeof page, page)
+        const skip = page * limit 
+        console.log('skip', typeof skip, skip)
+
 
         const data = await BlogPost.find( search ).sort( sort ) // i: case Insensitive
 
