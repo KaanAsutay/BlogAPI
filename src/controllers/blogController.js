@@ -89,13 +89,16 @@ module.exports.BlogPost = {
         // PAGINATION: URL?page=1&limit=10
         // let limit =  req.query?.limit || (process.env.PAGE_SIZE || 20)
         // limit = Number(limit)
-        let limit =  Number(req.query?.limit || (process.env.PAGE_SIZE || 20))
+        let limit =  Number(req.query?.limit)
+        limit = limit > 0 ? limit : Number(process.env?.PAGE_SIZE || 20)
         // console.log('limit', typeof limit, limit)
 
-        let page = Number(req.query?.page || 1) - 1
+        let page = Number(req.query?.page || 1)
+        page = (page > 0 ? page : 1) - 1
         // console.log('page', typeof page, page)
 
-        const skip = Number(req.query?.skip || (page * limit)) 
+        let skip = Number(req.query?.skip)
+        skip = skip > 0 ? skip : (page * limit) 
         console.log('skip', typeof skip, skip)
 
 
