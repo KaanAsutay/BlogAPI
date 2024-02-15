@@ -33,6 +33,9 @@ app.use(express.json())
 // Connect to MongoDB with Mongoose
 require('./src/dbConnection')
 
+// Searching&Sorting&Pagination:
+app.use(require('./src/middlewares/findSearchSortPage'))
+
 // HomePage:
 app.all('/', (req, res) => {
     res.send('WELCOME TO BLOG API')
