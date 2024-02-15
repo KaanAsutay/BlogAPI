@@ -75,7 +75,7 @@ module.exports.BlogPost = {
 
         // RUN:
         // const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
-        const data = await BlogPost.find(search).sort(sort).skip(skip).limit(limit).populate('blogCategoryId')
+        // const data = await BlogPost.find(search).sort(sort).skip(skip).limit(limit).populate('blogCategoryId')
         
         res.status(200).send({
             error: false,
