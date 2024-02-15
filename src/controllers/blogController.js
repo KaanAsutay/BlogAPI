@@ -102,9 +102,9 @@ module.exports.BlogPost = {
         console.log('skip', typeof skip, skip)
 
 
-        const data = await BlogPost.find( search ).sort( sort ) // i: case Insensitive
-
+        // RUN:
         // const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
+        const data = await BlogPost.find(search).sort(sort).skip(skip).limit(limit).populate('blogCategoryId')
         
         res.status(200).send({
             error: false,
