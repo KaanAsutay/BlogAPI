@@ -33,9 +33,9 @@ module.exports = (req, res, next) => {
         console.log('skip', typeof skip, skip)
 
         // RUN:
-        req.getModelList = async (Model) => {
+        req.getModelList = async (Model, populate = null) => {
             
-            return await Model.find(search).sort(sort).skip(skip).limit(limit)
+            return await Model.find(search).sort(sort).skip(skip).limit(limit).populate(populate)
         }
 
         next()
