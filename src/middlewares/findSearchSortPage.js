@@ -38,4 +38,5 @@ module.exports = (req, res, next) => {
             return await Model.find(search).sort(sort).skip(skip).limit(limit)
         }
 
+        next()
 }
